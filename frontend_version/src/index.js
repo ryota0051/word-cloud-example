@@ -1,3 +1,5 @@
+const minLength = 3
+
 function processFile() {
   const fileInput = document.getElementById("file-upload")
   const file = fileInput.files[0]
@@ -18,7 +20,8 @@ function countWords(text) {
 
   for (let i = 0; i < words.length; i++) {
     const word = words[i]
-    if (word !== "" && !stopWords.includes(word)) {
+    const wordLength = word.length
+    if (wordLength > minLength && !stopWords.includes(word)) {
       if (wordCounts[word] === undefined) {
         wordCounts[word] = 1
       } else {
